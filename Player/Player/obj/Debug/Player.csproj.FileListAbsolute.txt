@@ -1,0 +1,21 @@
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\bin\Debug\Player.exe.config
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\bin\Debug\Player.exe
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\bin\Debug\Player.pdb
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.csprojResolveAssemblyReference.cache
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.Form1.resources
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.Properties.Resources.resources
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.csproj.GenerateResource.Cache
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.exe
+c:\users\лулка\documents\visual studio 2012\Projects\Player\Player\obj\Debug\Player.pdb
+G:\1\Player\Player\bin\Debug\Player.exe.config
+G:\1\Player\Player\obj\Debug\Player.exe
+G:\1\Player\Player\obj\Debug\Player.pdb
+D:\University\1\Player\Player\bin\Debug\Player.exe.config
+D:\University\1\Player\Player\obj\Debug\Player.exe
+D:\University\1\Player\Player\obj\Debug\Player.pdb
+D:\University\1\Player\Player\bin\Debug\Player.exe
+D:\University\1\Player\Player\bin\Debug\Player.pdb
+D:\University\1\Player\Player\obj\Debug\Player.csprojResolveAssemblyReference.cache
+D:\University\1\Player\Player\obj\Debug\Player.Form1.resources
+D:\University\1\Player\Player\obj\Debug\Player.Properties.Resources.resources
+D:\University\1\Player\Player\obj\Debug\Player.csproj.GenerateResource.Cache
