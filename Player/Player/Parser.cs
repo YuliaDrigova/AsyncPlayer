@@ -8,10 +8,31 @@ namespace Player
 {
     class Parser
     {
-        public string Parse(string fileName)
+        public string ParseName(string fileName)
         {
-            string[] result = fileName.Split('.');
-            return result[result.Length - 2];
+            if (fileName == null)
+            {
+                fileName = "Unknown composition";
+            }
+            return fileName;
+        }
+
+        public string ParseArtist(string artist)
+        {
+            if (artist == null)
+            {
+                artist = "Unknown artist";
+            }
+            return artist;
+        }
+
+        public string ParseAlbum(string album)
+        {
+            if (album == null)
+            {
+                album = "Unknown album";
+            }
+            return album;
         }
     }
 }

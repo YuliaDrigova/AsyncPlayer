@@ -13,30 +13,19 @@ using Microsoft.DirectX.AudioVideoPlayback;
 
 namespace Player
 {
-    public partial class Form1 : Form
+    public partial class Player : Form
     {
         PlayList list;
         Audio au;
         Audio chosen;
 
-        public Form1()
+        public Player()
         {
             InitializeComponent();
             bnPlay.Image = Image.FromFile("D:\\University\\1\\Player\\img\\play.png");
             bnStop.Image = Image.FromFile("D:\\University\\1\\Player\\img\\stop.jpg");
             bnPause.Image = Image.FromFile("D:\\University\\1\\Player\\img\\pause.png");
             list = new PlayList();
-        }
-
-
-        private async void bnAdd_Click(object sender, EventArgs e)
-        {
-            WorkWithFolders stream = new WorkWithFolders(@"E:\Music");
-            await stream.ReadAllLinesAsync(list);
-            dgvPlaylist.DataSource = null;
-            dgvPlaylist.DataSource = list.GetTracks();           
-            MessageBox.Show(stream.timer.ElapsedMilliseconds.ToString());
-            dgvPlaylist.Columns[3].HeaderCell.Value = dgvPlaylist.Columns[3].HeaderCell.Value + "(MB)";
         }
 
         private void bnPlay_Click(object sender, EventArgs e)
@@ -54,6 +43,14 @@ namespace Player
             }
 
             au.Play();
+
+            var file = TagLib.File.Create(list.GetTracks().ElementAt(dgvPlaylist.CurrentRow.Index).path);
+            if (file.Tag.Pictures.Length >= 1)
+            {
+                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
+                pbAlbum.Image = Image.FromStream(new MemoryStream(bin)).GetThumbnailImage(214, 214, null, IntPtr.Zero);
+            }
+            
         }
 
         private void bnStop_Click(object sender, EventArgs e)
@@ -71,7 +68,22 @@ namespace Player
             chosen = new Audio(list.GetTracks().ElementAt(dgvPlaylist.CurrentRow.Index).path);
         }
 
-        private void bnDelete_Click(object sender, EventArgs e)
+        private void dgvPlaylist_DoubleClick(object sender, EventArgs e)
+        {
+            bnPlay_Click(this, e);
+        }
+
+        private async void tsmAdd_Click(object sender, EventArgs e)
+        {
+            WorkWithFolders stream = new WorkWithFolders(@"E:\Music");
+            await stream.ReadAllLinesAsync(list);
+
+            dgvPlaylist.DataSource = null;
+            dgvPlaylist.DataSource = list.GetTracks();
+            dgvPlaylist.Columns[3].HeaderCell.Value = dgvPlaylist.Columns[3].HeaderCell.Value + "(MB)";
+        }
+
+        private void tsmDelete_Click(object sender, EventArgs e)
         {
             list.Remove(list.GetTracks().ElementAt(dgvPlaylist.CurrentRow.Index));
             dgvPlaylist.DataSource = null;

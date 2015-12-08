@@ -51,7 +51,8 @@ namespace Player
                         foreach (var file in files)
                         {
                             Parser parser = new Parser();
-                            list.Add(new Track() { name = parser.Parse(file.Name), extantion = file.Extension, path = file.FullName, size = Math.Round(file.Length / 1048576.00, 2) });
+                            var tag = TagLib.File.Create(file.FullName);
+                            list.Add(new Track() { album = parser.ParseAlbum(tag.Tag.Album), artist = parser.ParseArtist(tag.Tag.FirstPerformer), name = parser.ParseName(tag.Tag.Title), extantion = file.Extension, path = file.FullName, size = Math.Round(file.Length / 1048576.00, 2) });
                         }
                     }
                     return list;

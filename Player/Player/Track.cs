@@ -9,13 +9,17 @@ namespace Player
 {
     public class Track
     {
+        public string artist { get; set; }
         public string name { get; set; }
+        public string album { get; set; }
         public string extantion { get; set; }
         public string path { get; set; }
         public double size { get; set; }
 
-        public Track(double size, string name, string extantion, string path)
+        public Track(string artist, string album, double size, string name, string extantion, string path)
         {
+            this.artist = artist;
+            this.album = album;
             this.size = size;
             this.name = name;
             this.extantion = extantion;
